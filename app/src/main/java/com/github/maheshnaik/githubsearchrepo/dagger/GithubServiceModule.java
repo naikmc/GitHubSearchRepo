@@ -12,7 +12,7 @@ import dagger.Provides;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-@Module(includes = { ContextModule.class})
+@Module
 public class GithubServiceModule {
 
     @Provides
@@ -39,7 +39,7 @@ public class GithubServiceModule {
 
     @Provides
     @GithubApplicationScope
-    public Picasso picasso(@ApplicationContext Context context) {
+    public Picasso picasso(Context context) {
         return new Picasso.Builder(context)
                 .build();
     }

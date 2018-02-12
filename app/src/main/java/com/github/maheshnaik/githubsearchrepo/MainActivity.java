@@ -9,11 +9,8 @@ import android.widget.SearchView;
 import android.widget.Toast;
 
 import com.github.maheshnaik.githubsearchrepo.dagger.ContextModule;
-import com.github.maheshnaik.githubsearchrepo.dagger.DaggerGithubApplicationComponent;
 import com.github.maheshnaik.githubsearchrepo.dagger.DaggerMainActivityComponent;
-import com.github.maheshnaik.githubsearchrepo.dagger.GithubApplicationComponent;
 import com.github.maheshnaik.githubsearchrepo.dagger.MainActivityComponent;
-import com.github.maheshnaik.githubsearchrepo.dagger.MainActivityModule;
 import com.github.maheshnaik.githubsearchrepo.model.GithubRepo;
 import com.github.maheshnaik.githubsearchrepo.model.GithubSearchResult;
 import com.github.maheshnaik.githubsearchrepo.network.GithubService;
@@ -51,12 +48,9 @@ public class MainActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         Timber.plant(new Timber.DebugTree());
 
-        GithubApplicationComponent gitComponent = DaggerGithubApplicationComponent.builder()
-                .contextModule(new ContextModule(getApplicationContext()))
-                .build();
+;
         MainActivityComponent component = DaggerMainActivityComponent.builder()
-                .mainActivityModule(new MainActivityModule(this))
-                .githubApplicationComponent(gitComponent)
+                .contextModule(new ContextModule(this))
                 .build();
 
         component.injectHomeActivity(this);

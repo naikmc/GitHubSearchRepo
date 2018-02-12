@@ -21,7 +21,7 @@ public class SearchAdapterRepos extends BaseAdapter {
   private final Picasso picasso;
 
   @Inject
-  public SearchAdapterRepos(MainActivity context, Picasso picasso) {
+  public SearchAdapterRepos(Context context, Picasso picasso) {
     this.context = context;
     this.picasso = picasso;
   }
